@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/style.css">
+		<title>Accueil</title>
+	</head>
+	<body>
+
+  	<nav class="sidenav">
+			<a id="TitreSideNav" href="#">NAVIGATION</a>
+			<a href="#equipe">Présentation équipe</a>
+			<a href="#sujet">Présentation sujet</a>
+			<a href="#installation">Projet réalisé</a>
+			<a href="#difficultees">Difficultés rencontrées</a>
+			<a href="#conclusion">Conclusion</a>
+		</nav>
+
+		<article>
+			<h1 class="titre">SAE 2.03 du groupe 8</h1>
+
+      <h2 id="equipe">Présentation de l'équipe</h2>
+
+			<p>
+				<table align="center">
+    			<tr>
+       			<td> <b> membres   </b> </td>
+       			<td> <b> fonctions </b> </td>
+      			<td> <b> rôles	   </b> </td>
+   				</tr>
+
+   				<tr>
+       			<td> Sorel Martin </td>
+       			<td> bibliothéquaire </td>
+       			<td> coordinateur, perfectionneur </td>
+   				</tr>
+
+ 					<tr>
+ 						<td> Deniau Liam </td>
+				 		<td> développeur </td>
+ 						<td> concepteur, expert </td>
+	 				</tr>
+
+					<tr>
+       			<td> Gouley Logann </td>
+       			<td> soutien </td>
+       			<td> soutien, correcteur d'orthographe </td>
+   				</tr>
+
+   				<tr>
+       			<td> Champvillard Sébastien </td>
+       			<td> soutien </td>
+       			<td> expert, soutien </td>
+   				</tr>
+				</table>
+			</p>
+
+      <h2 id="sujet">Présentation du sujet</h2>
+
+			<h3>But du projet</h3>
+
+			<p>
+				Proposer l’installation d’un service réseau à l’aide de Docker.</br>
+			</p>
+
+    	<h3>Contraintes du projet</h3>
+			<p>
+				 - Utilisation de Docker                  </br>
+				 - Projet basé sur des dockerfile         </br>
+				 - Projet hébergé dans un dépôt GitHub    </br>
+				 - On devait partir d'une image debia     </br>
+				 - Le projet doit fournir un seul service </br>
+				 - Arborescence imposée		                </br>
+			</p>
+
+			<h2 id="installation">Installation d'un service de partage de fichiers</h2>
+
+
+			<h4>1) Créer une image avec un dockerfile</h4>
+
+			<p>
+				La premiere étape fut de créer une image dockerfile, pour ce faire nous avons créé dans le Docker un fichier nommé "Dockerfile",
+				c'est ce dernier qui contient toutes les commandes d'installations de l'image Docker.</br>
+				Une fois ce fichier créé et les commandes (detaillées ci-dessous) écrites, il suffit de lancer la commande suivante :
+				"docker build -t nomDeVotreImage".</br></br>
+
+				Votre image est à présent créée, bravo à vous.</br>
+			</p>
+
+			<img src="./pictures/Image_Dockerfile.png" alt="Image_Dockerfile.png">
+
+			<h4>2) Installer l'application</h4>
+
+			<p>
+				L'image ci-dessous montre le contenu de ce fameux fichier Dockerfile. Tout d'abord, nous installons la commande "sudo" pour les
+				droit d'administrateur, suivie des commandes "debconf" et "apt-util" qui seront nécessaires plus tard. Nous devons ensuite installer
+				le package "apt-transport-https".</br>
+				Après cela, nous installons la commande "wget". Ensuite, nous importons grâce à cette dernière
+				la clef GPG pour vérifier l'authenticité du package. Ensuite, nous importons Jellyfin : l'application qui permettra notre partage de
+				fichiers. Pour finir, nous installons "systemctl" pour pouvoir lancer Jellyfin au démarrage du docker, et finalement nous ouvront le port 8096.</br></br>
+
+    		<img src="./pictures/Docker_build.png" alt="DockerBuild.png">
+
+     		<img src="./pictures/DockerRun.png" alt="DockerRun.png">
+			</p>
+
+			<h4>3) lancer l'application</h4>
+
+			<p>
+			 	A présent, il suffit de lancer la commande suivante : "docker build -t NomDeVotreImage".</br>
+				Ouvrez un navigateur web et tappez "di-docker:53370" dans la barre d'URL, normalement l'application s'est lancée sur votre page web !</br>
+			</p>
+
+    	<h2 id="difficultees">Difficultés rencontrées</h2>
+			<p>
+				- Problèmes de compatibilité : Nous avons eu plusieurs problèmes de compatibilité lors de tentatives d'installation d'applications qui,
+				à première vue, étaient compatibles, mais dont les différentes étapes nécessitaient des packages non compatibles avec le système d'exploitation
+				de l'image Docker.</br></br>
+
+				- Problème de compréhension des consignes : Un problème mineur lors de la lecture des consignes a affecté légèrement notre format de rendu.</br></br>
+
+				-	Problèmes d'installation : Une fois une application complètement compatible trouvée, nous avons eu des problèmes mineurs dans le script de
+				configuration de l'image Docker tels que l'ordre d'installation des packages. En définitif, rien de bien grave.</br></br>
+			</p>
+
+    	<h2 id="conclusion">Conclusion</h2>
+			<p>
+				Cette SAÉ nous a permis d'aborder l’environnement Docker et comprendre son usage dans d'autres situations. Nous avons aussi approfondi notre utilisation
+				de GitHub de façon modérée. Notre équipe de 4 s'est organisée de façon simpliste mais efficace.
+			</p>
+		</article>
+	</body>
+</html>
